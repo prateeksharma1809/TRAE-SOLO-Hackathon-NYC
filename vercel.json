@@ -1,8 +1,10 @@
 {
   "version": 2,
+  "builds": [
+    { "src": "mental-health-tracker/package.json", "use": "@vercel/next" }
+  ],
   "framework": "nextjs",
   "installCommand": "cd mental-health-tracker && npm install",
   "buildCommand": "cd mental-health-tracker && npm run build",
-  "devCommand": "cd mental-health-tracker && npm run dev",
-  "outputDirectory": "mental-health-tracker/.next"
+  "devCommand": "cd mental-health-tracker && npm run dev"
 }

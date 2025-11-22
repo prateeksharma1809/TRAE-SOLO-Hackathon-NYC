@@ -51,7 +51,9 @@ export class CSVDatabase {
   private dataDir: string;
 
   constructor() {
-    this.dataDir = path.join(process.cwd(), 'data');
+    const isVercel = !!process.env.VERCEL
+    const tmp = process.env.TMPDIR || '/tmp'
+    this.dataDir = isVercel ? path.join(tmp, 'data') : path.join(process.cwd(), 'data')
     this.initializeDataDir();
   }
 
@@ -207,7 +209,7 @@ export class CSVDatabase {
   }
 
   async getMentalHealthData(): Promise<Array<{ illness: string; definition: string }>> {
-    const csvPath = path.resolve(process.cwd(), '..', 'mental_illnesses.csv')
+    const csvPath = path.join(this.dataDir, 'mental_illnesses.csv')
     try {
       const content = await fs.readFile(csvPath, 'utf-8')
       const parsed = Papa.parse(content, { header: false, skipEmptyLines: true })
