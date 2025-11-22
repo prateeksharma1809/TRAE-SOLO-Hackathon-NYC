@@ -202,20 +202,7 @@ function IntegratedAssessment({ user }: { user: User }) {
         </div>
       )
     }
-    if (current.type === 'select') {
-      return (
-        <select
-          className="w-full px-4 py-3 border rounded"
-          value={(responses as any)[current.id] || ''}
-          onChange={(e)=>setValue(current.id as any, e.target.value)}
-        >
-          <option value="">Select...</option>
-          {current.options!.map(opt => (
-            <option key={opt} value={opt}>{opt}</option>
-          ))}
-        </select>
-      )
-    }
+    
     if (current.type === 'textarea') {
       return (
         <AutoTextarea

@@ -257,18 +257,7 @@ export default function AssessmentPage() {
                 {currentQ.question}
               </h2>
 
-              {currentQ.type === 'select' && (
-                <select
-                  value={responses[currentQ.id as keyof AssessmentResponse] as string || ''}
-                  onChange={(e) => handleResponseChange(currentQ.id, e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-                >
-                  <option value="">{currentQ.placeholder}</option>
-                  {currentQ.options?.map((option, index) => (
-                    <option key={index} value={option}>{option}</option>
-                  ))}
-                </select>
-              )}
+              
 
               {currentQ.type === 'textarea' && (
                 <div className="relative">
