@@ -1,0 +1,11 @@
+id,name,city,specialty,insuranceAccepted,phone,email,address
+t1,Dr. Alice Nguyen,New York,CBT; Anxiety; Depression,"Aetna, UnitedHealthcare, Cigna",(212) 555-1010,alice.nguyen@example.com,123 Madison Ave, New York, NY
+t2,Dr. Ben Carter,New York,Trauma; Stress; Mindfulness,"BlueCross, Aetna",(212) 555-2020,ben.carter@example.com,77 West 34th St, New York, NY
+t3,Sarah Patel,New York,Family Therapy; Couples,"UnitedHealthcare, Oscar",(212) 555-3030,sarah.patel@example.com,12 E 23rd St, New York, NY
+t4,Michael Chen,Brooklyn,Depression; ADHD,"Aetna, Cigna",(718) 555-4040,michael.chen@example.com,88 Flatbush Ave, Brooklyn, NY
+t5,Dr. Priya Rao,Queens,Anxiety; Burnout,"BlueCross, UnitedHealthcare",(718) 555-5050,priya.rao@example.com,40-12 Main St, Flushing, NY
+t6,Dr. Elena Garcia,New York,Grief; Trauma,"Medicare, Aetna",(212) 555-6060,elena.garcia@example.com,5th Ave & 45th St, New York, NY
+t7,James O'Connor,New York,General Counseling,"Cigna",(212) 555-7070,james.oconnor@example.com,200 Broadway, New York, NY
+t8,Dr. Maya Singh,Jersey City,Anxiety; Depression,"Aetna, BlueCross",(201) 555-8080,maya.singh@example.com,12 Montgomery St, Jersey City, NJ
+t9,Rebecca Lee,New York,Teens; Stress,"UnitedHealthcare",(212) 555-9090,rebecca.lee@example.com,145 West 57th St, New York, NY
+t10,Dr. Omar Haddad,New York,PTSD; Trauma,"Oscar, Cigna",(212) 555-1111,omar.haddad@example.com,300 Lexington Ave, New York, NY
