@@ -1,1 +1,8 @@
-{"rewrites":[{"source":"/(.*)","destination":"/index.html"}]}
+{
+  "version": 2,
+  "framework": "nextjs",
+  "installCommand": "cd mental-health-tracker && npm install",
+  "buildCommand": "cd mental-health-tracker && npm run build",
+  "devCommand": "cd mental-health-tracker && npm run dev",
+  "outputDirectory": "mental-health-tracker/.next"
+}

@@ -217,43 +217,14 @@ function IntegratedAssessment({ user }: { user: User }) {
       )
     }
     if (current.type === 'textarea') {
-      const AutoResizeTextarea = ({ value, onChange, placeholder }: { value: string; onChange: (e: any)=>void; placeholder?: string }) => {
-        const ref = useRef<HTMLTextAreaElement | null>(null)
-        useEffect(()=>{
-          if (ref.current) {
-            ref.current.style.height = 'auto'
-            ref.current.style.height = `${ref.current.scrollHeight}px`
-          }
-        }, [value])
-        return (
-          <div className="relative">
-            <textarea
-              ref={ref}
-              className="w-full px-4 py-2 border rounded-xl resize-none overflow-hidden focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors"
-              rows={1}
-              placeholder={placeholder}
-              value={value}
-              onChange={onChange}
-              onInput={(e:any)=>{ e.currentTarget.style.height='auto'; e.currentTarget.style.height=`${e.currentTarget.scrollHeight}px` }}
-            />
-            <div className="absolute bottom-2 right-2">
-              <button
-                type="button"
-                onClick={()=>{ isListening ? stopVoiceRecognition() : startVoiceRecognition() }}
-                className={`px-3 py-2 rounded-full transition-colors ${isListening ? 'bg-red-500 text-white hover:bg-red-600' : 'bg-purple-600 text-white hover:bg-purple-700'}`}
-                title={isListening ? 'Stop recording' : 'Start voice input'}
-              >
-                {isListening ? <MicOff className="h-4 w-4" /> : <Mic className="h-4 w-4" />}
-              </button>
-            </div>
-          </div>
-        )
-      }
       return (
-        <AutoResizeTextarea
+        <AutoTextarea
           value={(responses as any)[current.id] || ''}
           onChange={(e)=>setValue(current.id as any, e.target.value)}
           placeholder={current.placeholder}
+          isListening={isListening}
+          startVoiceRecognition={startVoiceRecognition}
+          stopVoiceRecognition={stopVoiceRecognition}
         />
       )
     }
@@ -437,6 +408,38 @@ function IntegratedAssessment({ user }: { user: User }) {
           <p className="mt-6 text-gray-700">See you tomorrow!</p>
         </div>
       )}
+    </div>
+  )
+}
+function AutoTextarea({ value, onChange, placeholder, isListening, startVoiceRecognition, stopVoiceRecognition }: { value: string; onChange: (e: any)=>void; placeholder?: string; isListening: boolean; startVoiceRecognition: ()=>void; stopVoiceRecognition: ()=>void }) {
+  const ref = useRef<HTMLTextAreaElement | null>(null)
+  useEffect(()=>{
+    if (ref.current) {
+      ref.current.style.height = 'auto'
+      ref.current.style.height = `${ref.current.scrollHeight}px`
+    }
+  }, [value])
+  return (
+    <div className="relative">
+      <textarea
+        ref={ref}
+        className="w-full px-4 py-2 border rounded-xl resize-none overflow-hidden focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors"
+        rows={1}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        onInput={(e:any)=>{ e.currentTarget.style.height='auto'; e.currentTarget.style.height=`${e.currentTarget.scrollHeight}px` }}
+      />
+      <div className="absolute bottom-2 right-2">
+        <button
+          type="button"
+          onClick={()=>{ isListening ? stopVoiceRecognition() : startVoiceRecognition() }}
+          className={`px-3 py-2 rounded-full transition-colors ${isListening ? 'bg-red-500 text-white hover:bg-red-600' : 'bg-purple-600 text-white hover:bg-purple-700'}`}
+          title={isListening ? 'Stop recording' : 'Start voice input'}
+        >
+          {isListening ? <MicOff className="h-4 w-4" /> : <Mic className="h-4 w-4" />}
+        </button>
+      </div>
     </div>
   )
 }
